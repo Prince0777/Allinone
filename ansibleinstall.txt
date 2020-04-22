@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 To install ansible in redhaat:
 uname -r
@@ -8,3 +9,15 @@ uname -r
    35  sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    36  sudo dnf install  --enablerepo epel-playground  ansible
    37  ansible--version
+=======
+
+To install ansible in redhaat:
+uname -r
+   31  cat etc/os-release
+   32  cat /etc/os-release
+   33  sudo dnf -y install python3-pip
+   34  sudo pip3 install --upgrade pip
+   35  sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+   36  sudo dnf install  --enablerepo epel-playground  ansible
+   37  ansible--version
+>>>>>>> 740278df1ee2c837b55ad7fa02687e79ed6b554d
