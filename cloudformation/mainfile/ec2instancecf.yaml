@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  imageid:
+    Type: String
+    Description: "image id"
+  instancetype:
+    Type: String
+    Description: "instance Name"
+Resources:
+  ec2instance:
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: !Ref imageid
+      InstanceType: !Ref instancetype

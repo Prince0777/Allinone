@@ -1,0 +1,12 @@
+[
+{
+        "ParameterKey": "imageid",
+        "ParameterValue": "ami-039a49e70ea773ffc"
+
+    },
+    {
+        "ParameterKey": "instancetype",
+        "ParameterValue": "t2.micro"
+
+    }
+]
