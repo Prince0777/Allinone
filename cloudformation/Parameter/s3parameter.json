@@ -1,8 +1,8 @@
 [
 
     {
-       "Parameterkey": "bucketname",
-       "Parametervalue": "thirdbucket"
+       "ParameterKey": "bucketname",
+       "ParameterValue": "thirdbucket"
 
 
     }
