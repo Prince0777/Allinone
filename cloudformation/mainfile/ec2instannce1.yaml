@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  imageid:
+    Type: String
+    Description: "image id"
+  instancetype:
+    Type: String
+    Description: "instance Name"
+  AvailabilityZone:
+    Type: String
+    Description: "availabilityzone Name"
+  KeyName:
+    Type: String
+    Description: "KeyName"
+  
+Resources:
+  ec2instance:
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: !Ref imageid
+      InstanceType: !Ref instancetype
+      AvailabilityZone: !Ref availabilityzone
+      KeyName: !Ref KeyName
+      SecurityGroups: 
+      -
+      !Ref SecuritygroupName
+SecuirtyGroup:
+      Type: AWS::EC2::SecurityGroup
+      Properties:
+          GroupDescription: "This is security group by cloudformation"
+          SecurityGroupIngress: 
+              -
+                  CidrIp: 0.0.0.0/0
+                  FromPort: 22
+                  ToPort: 22
+                  IpProtocol: tcp
+              -
+                  CidrIp: 0.0.0.0/0
+                  FromPort: 80
+                  ToPort: 80 
+                  IpProtocol: tcp
