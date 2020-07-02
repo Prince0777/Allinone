@@ -1,0 +1,67 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  imageidLinux:
+    Type: String
+    Description: "image id"
+  imageidWindows:
+    Type: String
+    Description: "image id"
+  instancetype:
+    Type: String
+    Description: "instance Name"
+  AvailabilityZoneLinux:
+    Type: String
+    Description: "availabilityzone Name"
+  AvailabilityZoneWindows:
+    Type: String
+    Description: "availabilityzone Name"
+
+Resources:
+  ec2instanceLinux:
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: 
+        !Ref imageidLinux
+      InstanceType:
+         !Ref instancetype
+      AvailabilityZone: 
+        !Ref AvailabilityZoneLinux
+      SecurityGroups: 
+        -
+            !Ref SecuirtyGroup
+      BlockDeviceMappings:
+        -
+          DeviceName: /dev/xvda
+          Ebs: 
+             DeleteOnTermination: True                                                
+             VolumeSize: 8
+             VolumeType: gp2 
+  ec2instanceWindows:
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: 
+        !Ref imageidWindows
+      InstanceType:
+         !Ref instancetype
+      AvailabilityZone: 
+        !Ref AvailabilityZoneWindows
+      SecurityGroups: 
+        -
+            !Ref SecuirtyGroup
+      BlockDeviceMappings:
+        -
+          DeviceName: /dev/xvda
+          Ebs: 
+             DeleteOnTermination: True                                                
+             VolumeSize: 8
+             VolumeType: gp2 
+  SecuirtyGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "This is security group by cloudformation"
+      SecurityGroupIngress: 
+        -
+          CidrIp: 0.0.0.0/0
+          FromPort: 80
+          ToPort: 80
+          IpProtocol: TCP
