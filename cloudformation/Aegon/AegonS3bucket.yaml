@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Parameters:
+  bucketName:
+    Type: String
+    Description: "Bucket Name"
+Resources:
+  s3POC:
+    Type: AWS::S3::Bucket
+    Properties: 
+      AccessControl: PublicRead
+      BucketName: !Ref bucketName
+      BucketEncryption: 
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256

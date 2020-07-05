@@ -1,0 +1,40 @@
+[
+        {
+            "ParameterKey": "imageidLinux",
+            "ParameterValue": "ami-0615132a0f36d24f4"
+    
+        },
+        {
+            "ParameterKey": "imageidWindows",
+            "ParameterValue": "ami-0c56fe351c73dece0"
+    
+        },
+        {
+            "ParameterKey": "instancetype",
+            "ParameterValue": "t2.micro"
+    
+        },
+        {
+            "ParameterKey": "AvailabilityZoneLinux",
+            "ParameterValue": "ap-southeast-1a"
+    
+        },
+        {
+            "ParameterKey": "AvailabilityZoneWindows",
+            "ParameterValue": "ap-southeast-1b"
+    
+        },
+        {
+            "ParameterKey": "keyname",
+            "ParameterValue": "POC"
+         
+        },
+        {
+            "ParameterKey": "AvailabilityZone",
+            "ParameterValue": "ap-southeast-1a"
+    
+        }       
+        
+        
+]
+    
