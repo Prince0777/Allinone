@@ -1,0 +1,10 @@
+---
+ - hosts: "{{ hstname }}"
+   become: true
+   tasks:
+    -  name: "this is for installing services"
+       yum:
+         name: "{{ items }}"
+         state: present
+   with_items: ['httpd','curl','wget']
+   ignore_errors: true

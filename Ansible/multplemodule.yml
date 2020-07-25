@@ -1,0 +1,37 @@
+---
+- hosts: web
+  user: ansible1
+  become: true
+  tasks:
+    - name: "This is for new user"
+      user:
+         name : ansiblenew
+         state: present
+    -  name: "This is for installting httpd"
+       yum:
+         name: httpd
+         state: latest
+       notify:
+       - restart tomcat
+    -  name:"This is for copying file"
+       copy:
+         src: index.html
+         dest: /var/www/html
+       notify:
+       - restart tomcat
+    -  name : "This is for linux command"
+         command : hostname
+         register: output
+    -  name : "this is for ping"
+         ping: 
+    -  debug: 
+         msg: "{{ output }}"
+    -  name: "This is for scripting"
+       Script:/home/ansible1/ansible_playbook/azharAnsible/file.sh
+    -  name: "This is "
+         url: http://
+  handlers:
+    -  name: restart tomcat
+       service:
+          name: httpd
+          state: restarted
