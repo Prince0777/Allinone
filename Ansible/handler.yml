@@ -1,0 +1,24 @@
+---
+- hosts: web
+  user: ansible1
+  vars: 
+       package: httpd      
+  become: true
+  tasks:
+    -  name: "This is for installting httpd"
+       yum:
+         name: "{{ package }}"
+         state: latest
+       notify:
+       - restart tomcat
+    -  name:"This is for copying file"
+       copy:
+         src: index.html
+         dest: /var/www/html
+       notify:
+       - restart tomcat
+  handlers:
+    -  name: restart tomcat
+       service:
+          name: "{{ package }}"
+          state: restarted
