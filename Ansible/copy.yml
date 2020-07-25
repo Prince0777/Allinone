@@ -1,0 +1,9 @@
+---
+ - host: web
+   user: ansible1
+   become: true
+   tasks:
+   -  name:"This is for copying file"
+      copy:
+        src: index.html
+        dest: /var/www/html
